@@ -1,27 +1,28 @@
-
 import random
-from tabnanny import check
-import random
-from string import ascii_lowercase, ascii_uppercase
-
-from Password import PasswordClass
-def guessLettre(mots):
+from string import ascii_lowercase
+class check:
+    def guessLettre(mots):
         passwords = []
         mots = ["joachim"]
         password = ''
         
         while (password not in passwords):
             for mot in mots:
-                mdp = random.choices([mot.join(random.choices(ascii_lowercase, k=len(mot))) for _ in range(10)])
-                if(mdp not in mots):
-                    mots.append(mdp)
-                    password = mdp   
-                    passwords.append(password)
-            for mot in mots:
-                mdp = random.choices([mot.join(random.choices(ascii_uppercase, k=len(mot))) for _ in range(10)])
-                    
+                mot.upper()
+                mdp = random.choices([mot.join(random.choices(ascii_lowercase, k=3)) for _ in range(10)])
+                if(mdp.isUpper()):
+                    if(mdp not in mots):
+                        mots.append(mdp)
+                        password = mdp   
+                        passwords.append(password)
+                else:
+                    if(mdp not in mots):
+                        mots.append(mdp)
+                        password = mdp   
+                        passwords.append(password)
         return passwords   
-def guessLeet(mots):
+
+    def guessLeet(mots):
         passwords = []
         mots = ["joachim"]
         password = ''
@@ -40,11 +41,4 @@ def guessLeet(mots):
             mot = list(dict.fromkeys(mot))
             passwords.append(mot)
         return passwords
-
-
-mots = ["joachim","Dan"]
-
-answer = guessLettre(mots)
-answer2 = guessLeet(mots)
-
-print(answer)
+    # def gussDate(mots):
