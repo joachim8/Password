@@ -1,5 +1,7 @@
 
 from datetime import date
+import random
+from string import ascii_lowercase
 
 class PasswordClass(object):
     """description of class"""
@@ -25,6 +27,31 @@ class PasswordClass(object):
     def age(self):
         return self.age
 
+    def guessLettre(mots, password, mot):
+        passwords = []
+        mots = []
+        password = ''
+        lettres = mot[0:3]
+        leet = {'a':'4','e':'3','i':'1','o':'0','A':'4','E':'3','I':'1','O':'0'}
+        while (password not in passwords):
+            for mot in mots:
+                mdp = random.choices([lettres.join(random.choices(ascii_lowercase, k=3)) for _ in range(10)])
+                mdp.upper()
+                if(mdp.isUpper()):
+                    if(mdp not in mots):
+                        mots.append(mdp)
+                        password = mdp   
+                        passwords.append(password)
+                    else:
+                        if(mdp not in mots):
+                            mots.append(mdp)
+                            password = mdp   
+                            passwords.append(password)
+            for mot in mots:
+                mdp = random.choice()
+
+
+        return passwords   
 
 
   
